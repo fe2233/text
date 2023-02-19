@@ -12,7 +12,7 @@ html,body { padding:0; margin:0;}
 </head>
 
 <body>
-<div class="inp-box"><label>打印字符：</label><input id="pCode" type="text" maxlength="4"/><label>填充字符1：</label><input id="fCode1" type="text" maxlength="2"/><label>填充字符2：</label><input id="fCode2" type="text" maxlength="1"/></div>
+<div class="inp-box"><label>打印字符：</label><input id="pCode" type="text" maxlength="4"/><label>填充字符1：</label><input id="fCode1" type="text" maxlength="2"/><label>填充字符2：</label><input id="fCode2" type="text" maxlength="3"/></div>
 <button id="create">生成</button>
 <canvas id="canvas"></canvas>
 <div id="textBox"></div>
@@ -28,13 +28,13 @@ cre.addEventListener("click", function() {
 	
 	pcode=document.getElementById("pCode").value;
 	fcode1=document.getElementById("fCode1").value;
-	fcode2=document.getElementById("fCode2").value.charAt(0);
+	fcode2=document.getElementById("fCode2").value;
 	
 	if(fcode1.length == 1 && fcode1>="a" && fcode1<="z")
 		fcode1 += fcode1;
 	if(fcode2 == " ")
 		fcode2 = "ㅤ";
-	else
+	else if(fcode2.length == 1)
 		fcode2 += fcode2+fcode2;
 	
 	for(var e=0;e<pcode.length;e++) {
